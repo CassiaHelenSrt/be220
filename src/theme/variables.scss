@@ -1,2 +1,20 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+:root {
+  --ion-background-color: #191918;
+  --ion-color-secondary: #b3600a;
+  --ion-text-color: #ffffff;
+
+  //color
+  --ion-color-white: #ffffff;
+  --ion-color-dark-gray: #202020;
+  --ion-color-black: #000;
+  --ion-color-green: #00ff00;
+  --ion-color-purple: #6033ce;
+}
+
+/* Aplica padding ao conteúdo principal */
+ion-content {
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+}

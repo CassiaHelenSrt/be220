@@ -1,0 +1,107 @@
+<ion-header class="ion-no-border">
+  <section class="header">
+    <ion-buttons>
+      <ion-icon color="white" name="menu" class="icon"></ion-icon>
+    </ion-buttons>
+
+    <img class="profile-avatar" src="assets/imgs/logo.png" />
+
+    <ion-buttons class="notification-container">
+      <ion-icon
+        color="secondary"
+        name="notifications"
+        class="icon-notification"
+      ></ion-icon>
+      <span class="notification-badge"></span>
+    </ion-buttons>
+  </section>
+
+  <section class="profile-section">
+    <article class="profile">
+      <figure class="profile-avatar">
+        <img
+          src="assets/imgs/image.png"
+          alt="Foto de perfil de Leonardo Santos"
+        />
+      </figure>
+
+      <header class="profile-header">
+        <h2>Leonardo Santos</h2>
+        <p>Nível Roxo</p>
+      </header>
+    </article>
+
+    <nav class="profile-actions">
+      <button fill="outline">
+        <ion-icon slot="start" name="man"></ion-icon>
+        Meu Corpo
+      </button>
+      <button fill="outline">
+        <ion-icon slot="start" name="trophy"></ion-icon>
+        Objetivos e Conquistas
+      </button>
+    </nav>
+  </section>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <section>
+      <header>
+        <h3>Personal Online</h3>
+        <ion-icon name="add-circle-outline" class="icon-end"></ion-icon>
+      </header>
+      <ul>
+        <li *ngFor="let item of personalOnline">
+          <ion-card>
+            <img [src]="item.image" alt="" />
+            <div class="container-training">
+              <div class="training center">
+                <ion-icon [name]="item.icon" class="icon-end"></ion-icon>
+                <p>{{ item.title }}</p>
+              </div>
+            </div>
+          </ion-card>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h3>Programas</h3>
+        <ion-badge class="fluorescent">NOVO</ion-badge>
+      </header>
+      <ul>
+        <li *ngFor="let item of programs">
+          <ion-card>
+            <img [src]="item.image" alt="" />
+            <div class="container-training">
+              <div class="training">
+                <span>{{ item.description }}</span>
+                <p>{{ item.title }}</p>
+              </div>
+            </div>
+          </ion-card>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h3>Conteúdo</h3>
+      </header>
+      <ul>
+        <li *ngFor="let item of content">
+          <ion-card>
+            <img [src]="item.image" alt="" alt="" />
+            <div class="container-training">
+              <div class="training center">
+                <ion-icon style="color: #ff0033" name="logo-youtube"></ion-icon>
+              </div>
+            </div>
+          </ion-card>
+        </li>
+      </ul>
+    </section>
+  </ion-list>
+</ion-content>
