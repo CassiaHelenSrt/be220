@@ -99,38 +99,27 @@ export class DashboardPage implements OnInit {
 
   async getData() {
     try {
+      // Acessando a coleção 'personalOnline' no Firestore
       const querySnapshot = await getDocs(
         collection(this.db, 'personalOnline')
       );
 
-      const data: PersonalOnline[] = [];
+      // Criando uma lista para armazenar os dados
+      const data: any = [];
 
+      // Adicionando os dados de cada documento na lista
       querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() } as PersonalOnline);
+        data.push({ id: doc.id, ...doc.data() });
       });
 
-      this.personalOnline = data.sort((a: PersonalOnline, b: PersonalOnline) =>
+      // Ordenando os dados pelo id (ordem lexicográfica)
+      this.personalOnline = data.sort((a: any, b: any) =>
         a.id.localeCompare(b.id)
       );
 
       console.log(this.personalOnline);
     } catch (error) {
       console.error('Erro ao buscar dados: ', error);
-    }
-  }
-
-  // Função para atualizar dados
-  async updateData(docId: string, updatedData: any) {
-    try {
-      // Obter a referência do documento
-      const docRef = doc(this.db, 'planos', docId); // 'users' é a coleção, docId é o ID do documento a ser atualizado
-
-      // Atualizando os campos no documento
-      await updateDoc(docRef, updatedData);
-
-      console.log('Documento atualizado com sucesso!');
-    } catch (error) {
-      console.error('Erro ao atualizar documento: ', error);
     }
   }
 }
